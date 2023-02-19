@@ -1,0 +1,60 @@
+.header
+  border-bottom: 1px solid #618abb
+  box-sizing: border-box
+
+.container
+  display: flex
+  justify-content: space-between
+  align-items: center
+  box-sizing: border-box
+
+  @media screen and (max-width: 536px)
+    flex-direction: column
+
+.header_logo
+  display: flex
+  flex-direction: row
+  align-items: center
+
+  img
+    margin: 0 15px
+    padding: 3px
+    width: 60px
+
+    @media screen and (max-width: 320px)
+      width: 40px
+      margin-right: 10px
+      padding: 0
+
+  h1
+    margin-bottom: 5px
+    color: #00235e
+    font-size: 24px
+    text-transform: uppercase
+    font-weight: 800
+
+    @media screen and (max-width: 320px)
+      font-size: 16px
+
+  p
+    margin: 5px 0
+    color: #618abb
+
+  @media screen and (max-width: 320px)
+    font-size: 10px
+
+.button_cart
+  margin-right: 20px
+  padding: 5px 0
+  height: 50px
+  width: 50px
+  text-align: center
+  border: none
+  border-radius: 50%
+  background-color: #fdba21
+  color: #fff
+  cursor: pointer
+  transition: 0.5s ease
+
+  &:hover
+    background-color: #00235e
