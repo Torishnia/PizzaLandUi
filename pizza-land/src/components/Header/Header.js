@@ -23,9 +23,13 @@ export default function Header() {
             </div>
             
             <div>
+
               <button className={style.button_cart}>
-                <HiOutlineShoppingCart size={23}/>
+                <HiOutlineShoppingCart/>
               </button>
+
+              <div className={style.numberCart}>1</div>
+
             </div>
 
           </div>
