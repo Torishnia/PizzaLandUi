@@ -1,0 +1,93 @@
+.pizza_block
+  margin: 55px 0 65px 20px
+  width: 280px
+  text-align: center
+  background-color: #b9d1ea
+  border-radius: 10px
+  box-shadow: 0px 2px 4px #00000066
+  box-sizing: border-box
+  transition: all 0.2s ease-in-out
+
+  &:hover
+    transform: scale(1.03)
+
+  &.wrapper
+    display: flex
+    justify-content: center
+
+  &_image
+    width: 100%
+    border-bottom: 2px solid #fff
+    border-radius: 10px 10px 0 0
+
+  &_title
+    font-size: 20px
+    font-weight: 900
+    margin: 10px 0 20px 0
+
+  &_selector
+    display: flex
+    flex-direction: column
+    padding: 6px
+    background-color: #fff
+    color: #00235e
+
+    ul
+      display: flex
+      flex: 1
+      list-style: none
+      padding-left: 0
+
+      &:first-of-type
+        margin-bottom: 6px
+
+      li
+        flex: 1
+        margin: 0 10px
+        padding: 8px
+        font-size: 14px
+        font-weight: 600
+        cursor: pointer
+
+        &:hover,
+        &.active
+          box-shadow: 0px 2px 4px #00000066
+          border-radius: 5px
+
+        &:hover
+          background-color: #fff
+
+        &.active
+          background-color: #00235e
+          color: #fff
+          cursor: auto
+
+  &_bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 20px
+
+  &_price
+    margin: 0 0 20px 25px
+    font-size: 22px
+    font-weight: bold
+    line-height: 27px
+    letter-spacing: 0.015em
+
+.button
+  margin: 0 20px 20px 0
+
+  &_add
+    padding: 5px
+    width: 70px
+    height: 30px
+    background-color: #fdba21
+    color: #fff
+    border: none
+    border-radius: 10px
+    cursor: pointer
+    transition: 0.8s easy
+
+    &:hover
+      background-color: #2e8b55
