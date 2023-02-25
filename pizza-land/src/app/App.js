@@ -2,9 +2,7 @@ import Categories from '../components/Categories/Categories';
 import Header from '../components/Header/Header';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Sort from '../components/Sort/Sort';
-import PizzaSlider_1 from '../components/image/pizza_slider_1.png';
-import PizzaSlider_2 from '../components/image/pizza_slider_2.png';
-import PizzaSlider_3 from '../components/image/pizza_slider_3.png';
+import { pizzas, slides } from '../data';
 import style from './app.module.sass';
 
 function App() {
@@ -13,9 +11,7 @@ function App() {
       <Header />
       <div className={style.content}>
         <div className={style.wrapper}>
-            <img src={PizzaSlider_1} alt='PizzaSlider'/>
-            <img src={PizzaSlider_2} alt='PizzaSlider'/>
-            <img src={PizzaSlider_3} alt='PizzaSlider'/>
+          { slides.map((slide) => <img src={slide.src} alt={slide.alt}/>) }
         </div>
       </div>
         
@@ -23,7 +19,9 @@ function App() {
         <Categories />
         <Sort />
         <h2>All pizzas</h2>
-        <PizzaBlock />
+        <div className={style.items}>
+          { pizzas.map((pizza) => <PizzaBlock image={pizza.image} title={pizza.title} price={pizza.price}/>) }
+        </div>
       </div>
     </div>
   );
