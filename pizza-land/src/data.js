@@ -47,7 +47,7 @@ export const pizzas = [
   },
 ];
 
-export const slides = [
+export const sliders = [
   {
     id: 1,
     src: pizzaSlider_1,
