@@ -1,13 +1,17 @@
 import React from 'react';
 
-import PizzaBlock from '../PizzaBlock/PizzaBlock';
-import { pizzas } from '../../data';
+import Categories from '../Categories/Categories';
+import Sort from '../Sort/Sort';
+import Products from '../Products/Products';
 import style from './content.module.sass';
 
 export default function Content() {
   return (
-    <div className={style.items}>
-      { pizzas.map((pizza) => <PizzaBlock image={pizza.image} title={pizza.title} price={pizza.price}/>) }
+    <div>
+      <Categories />
+      <Sort />
+      <h2>All pizzas</h2>
+      <Products />
     </div>
   )
 }
