@@ -2,15 +2,15 @@ import React from 'react';
 
 import style from './pizzaBlock.module.sass';
 
-export default function PizzaBlock(props) {
+export default function PizzaBlock({ image, title, price }) {
   return (
     <div className={style.pizza_block}>
       <img
         className={style.pizza_block_image}
-        src={props.image}
+        src={image}
         alt='Pizza'
       />
-      <h4 className={style.pizza_block_title}>{props.title}</h4>
+      <h4 className={style.pizza_block_title}>{title}</h4>
       <div className={style.pizza_block_selector}>
         <ul>
           <li className={style.active}>thin</li>
@@ -23,7 +23,7 @@ export default function PizzaBlock(props) {
         </ul>
       </div>
       <div className={style.pizza_block_bottom}>
-        <div className={style.pizza_block_price}>{props.price} $</div>
+        <div className={style.pizza_block_price}>{price} $</div>
         <div className={style.button}>
           <button className={style.button_add}>Add</button>
           {/* <button>Remove</button> */}

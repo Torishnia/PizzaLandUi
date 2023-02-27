@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { HiOutlineShoppingCart } from 'react-icons/hi';
-import pizzaSlice from '../image/pizzaSlice.png';
+import pizzaSlice from '../../assets/image/pizzaSlice.png';
 import style from './header.module.sass';
 
 export default function Header() {

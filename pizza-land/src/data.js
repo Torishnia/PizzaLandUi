@@ -1,12 +1,12 @@
-import pizzaMexico from './components/image/Mexico.jpg';
-import pizzaCalifornia from './components/image/California.jpg';
-import pizzaCheseOverload from './components/image/Cheese Overload.jpg';
-import pizzaGreek from './components/image/Greek.jpg';
-import pizzaNeapolitan from './components/image/Neapolitan.png';
-import pizzaBavarian from './components/image/Bavarian.jpg';
-import pizzaSlider_1 from './components/image/pizza_slider_1.png';
-import pizzaSlider_2 from './components/image/pizza_slider_2.png';
-import pizzaSlider_3 from './components/image/pizza_slider_3.png';
+import pizzaMexico from './assets/image/Mexico.jpg';
+import pizzaCalifornia from './assets/image/California.jpg';
+import pizzaCheseOverload from './assets/image/Cheese Overload.jpg';
+import pizzaGreek from './assets/image/Greek.jpg';
+import pizzaNeapolitan from './assets/image/Neapolitan.png';
+import pizzaBavarian from './assets/image/Bavarian.jpg';
+import pizzaSlider_1 from './assets/image/pizza_slider_1.png';
+import pizzaSlider_2 from './assets/image/pizza_slider_2.png';
+import pizzaSlider_3 from './assets/image/pizza_slider_3.png';
 
 export const pizzas = [
   {
