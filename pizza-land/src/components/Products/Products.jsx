@@ -7,7 +7,9 @@ import style from './products.module.sass';
 export default function Content() {
   return (
     <div className={style.items}>
-      { pizzas.map((pizza) => <PizzaBlock image={pizza.image} title={pizza.title} price={pizza.price}/>) }
+      { pizzas.map((pizza) => 
+        <PizzaBlock {...pizza} />
+      ) }
     </div>
   )
 }

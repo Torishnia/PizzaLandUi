@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import style from './pizzaBlock.module.sass';
 
-export default function PizzaBlock({ image, title, price }) {
+export default function PizzaBlock({ image, title, price, sizes, types }) {
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
+  const typeNames = ['thin', 'traditional'];
+
   return (
     <div className={style.pizza_block}>
       <img
@@ -13,13 +17,16 @@ export default function PizzaBlock({ image, title, price }) {
       <h4 className={style.pizza_block_title}>{title}</h4>
       <div className={style.pizza_block_selector}>
         <ul>
-          <li className={style.active}>thin</li>
-          <li>traditional</li>
+          { types.map((type, i) => (
+            <li onClick={() => setActiveType(i)} className={activeType === i ? style.active : ''}>
+              {typeNames[type]}
+            </li>
+          )) }
         </ul>
         <ul>
-          <li className={style.active}>26 cm.</li>
-          <li>30 cm.</li>
-          <li>40 cm.</li>
+          {sizes.map((size, i) => (
+            <li onClick={() => setActiveSize(i)} className={activeSize === i ? style.active : ''}>{size} cm.</li>
+          ))}
         </ul>
       </div>
       <div className={style.pizza_block_bottom}>
