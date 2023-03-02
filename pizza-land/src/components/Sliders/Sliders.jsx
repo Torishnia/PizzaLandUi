@@ -7,7 +7,7 @@ export default function Sliders() {
   return (
     <div className={style.content}>
       <div className={style.wrapper}>
-        { sliders.map((slider) => <img src={slider.src} alt={slider.alt}/>) }
+        { sliders.map((slider) => <img key={slider.id} src={slider.src} alt={slider.alt}/>) }
       </div>
   </div>
   )

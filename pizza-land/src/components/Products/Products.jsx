@@ -4,11 +4,11 @@ import PizzaBlock from '../PizzaBlock/PizzaBlock';
 import { pizzas } from '../../data';
 import style from './products.module.sass';
 
-export default function Content() {
+export default function Products() {
   return (
     <div className={style.items}>
       { pizzas.map((pizza) => 
-        <PizzaBlock {...pizza} />
+        <PizzaBlock key={pizzas.id} {...pizza} />
       ) }
     </div>
   )
