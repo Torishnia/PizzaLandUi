@@ -1,0 +1,159 @@
+.container
+  margin: 70px 200px
+
+  &_header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &_cart
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 60px
+      color: #2e8b55
+
+      h2
+        margin: 0 0 0 8px
+        color: #2e8b55
+
+    &_trash
+      display: flex
+      justify-content: center
+      align-items: center
+      height: 60px
+      color: #c9c9c9
+      cursor: pointer
+      transition: 0.5s ease
+
+      &:hover
+        color: #929191
+
+  &_content
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 20px 0
+    padding-bottom: 8px
+    border-bottom: 1px solid #6c7c00
+
+    &_item
+      display: flex
+      justify-content: center
+      align-items: center
+
+      img
+        height: 60px
+        width: 100px
+        border-radius: 10px
+
+      &_description
+        display: flex
+        flex-direction: column
+        margin-left: 15px
+
+        h4
+          margin-top: 0
+          margin-bottom: 8px
+          color: #00235e
+
+        span
+          color: #618abb
+
+    &_amount
+      display: flex
+      justify-content: center
+      align-items: center
+
+      button
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 0 8px
+        padding: 0
+        color: #f80707
+        background: none
+        border: none
+        cursor: pointer
+        transition: 0.5s ease
+
+        &:hover
+          scale: 1.5
+
+      span
+        color: #00235e
+
+    &_price
+      color: #00235e
+
+    &_remove
+      button
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0
+        color: #c9c9c9
+        background: none
+        border: none
+        cursor: pointer
+        transition: 0.5s ease
+
+        &:hover
+          color: #929191
+          scale: 1.5
+
+  &_totalOrders
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 50px 0
+
+    span
+      color: #00235e
+      font-size: 20px
+
+  &_footer
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &_back
+      position: relative
+      background: none
+      border: 0
+      color: #618abb
+      font-weight: bold
+      cursor: pointer
+      transition: all 500ms ease-in-out
+
+      &:after
+        position: absolute
+        top: -50%
+        right: -10px
+        content: ''
+        width: 35px
+        height: 35px
+        border-radius: 50%
+        background: #00235e
+        opacity: 0.9
+        z-index: -1
+        transition: inherit
+
+      &:hover:after
+        width: calc( 100% + 20px )
+        border-radius: 30px
+        opacity: 0.1
+
+    &_pay
+      height: 35px
+      width: 80px
+      font-weight: bold
+      border: none
+      border-radius: 30px
+      color: #fff
+      background: #fdba21
+      cursor: pointer
+      transition: 0.5s ease
+
+      &:hover
+        background: #2e8b55

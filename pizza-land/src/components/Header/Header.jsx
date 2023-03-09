@@ -27,7 +27,7 @@ export default function Header() {
         <div className={style.header_cart}>
           <Link to='/cart'>
             <div className={style.cart_block}>
-              <button><HiOutlineShoppingCart/></button>
+              <button><HiOutlineShoppingCart /></button>
               <div className={style.numberCart}>1</div>
             </div>
           </Link>

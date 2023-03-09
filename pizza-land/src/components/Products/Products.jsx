@@ -15,6 +15,7 @@ export default function Products() {
       setItems(arr);
       setIsLoading(false);
     });
+    window.scrollTo(0, 0);
   }, []);
 
   return (
