@@ -53,7 +53,9 @@ export default function Cart() {
       </div>
 
       <div className={style.container_footer}>
-        <button className={style.container_footer_back}>&larr; Go back</button>
+        <Link to='/'>
+          <button className={style.container_footer_back}>&larr; Go back</button>
+        </Link>
         <button className={style.container_footer_pay}>Pay</button>
       </div>
     </div>
