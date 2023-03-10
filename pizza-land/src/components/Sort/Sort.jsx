@@ -1,19 +1,22 @@
-import React from 'react';
 import { useState } from 'react';
 
 import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import style from './sort.module.sass';
 
-export default function Sort() {
+export default function Sort({ value, onChangeSort }) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(0);
 
-  const sortName = ['popularity', 'price', 'alphabet'];
-  const selectedSortName = sortName[selected];
+  const sortName = [
+    { name:'popularity (DESC)', sortProperty: 'rating' },
+    { name:'popularity (ASC)', sortProperty: '-rating' },
+    { name: 'price (DESC)', sortProperty: 'price' },
+    { name: 'price (ASC)', sortProperty: '-price' },
+    { name: 'alphabet', sortProperty: 'title' },
+  ];
 
   const onClickListItem = (i) => {
-    setSelected(i);
+    onChangeSort(i);
     setOpen(false);
   }
 
@@ -22,17 +25,17 @@ export default function Sort() {
       <div className={style.sort_label}>
         {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown/>}
         <b>Sorted by:</b>
-        <span onClick={() => setOpen(!open)} >{selectedSortName}</span>
+        <span onClick={() => setOpen(!open)} >{value.name}</span>
       </div>
       {open && <div className={style.sort_popul}>
         <ul>
-          {sortName.map((name, i) => 
+          {sortName.map((obj, i) => 
             <li 
-              key={name} 
-              onClick={() => onClickListItem(i)}
-              className={selected === i ? style.active : ''}
+              key={i} 
+              onClick={() => onClickListItem(obj)}
+              className={value.sortProperty === obj.sortProperty ? style.active : ''}
             >
-              {name}
+              {obj.name}
             </li>
           )}
         </ul>
