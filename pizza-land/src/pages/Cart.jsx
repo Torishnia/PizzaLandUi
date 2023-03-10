@@ -49,7 +49,7 @@ export default function Cart() {
       </div>
       <div className={style.container_totalOrders}>
         <span>Pizzas: <b>2</b></span>
-        <span>Total: <b style={{ color: '#red' }}>40 $</b></span>
+        <span>Total: <b>40 $</b></span>
       </div>
 
       <div className={style.container_footer}>

@@ -1,6 +1,15 @@
 .container
   margin: 70px 200px
 
+  @media screen and (max-width: 1024px)
+    margin: 70px 100px
+
+  @media screen and (max-width: 790px)
+    margin: 50px 30px
+
+  @media screen and (max-width: 480px)
+    margin: 20px 20px
+
   &_header
     display: flex
     justify-content: space-between
@@ -37,10 +46,17 @@
     padding-bottom: 8px
     border-bottom: 1px solid #6c7c00
 
+    @media screen and (max-width: 480px)
+      display: flex
+      flex-direction: column
+
     &_item
       display: flex
       justify-content: center
       align-items: center
+
+      @media screen and (max-width: 480px)
+        padding-bottom: 20px
 
       img
         height: 60px
@@ -60,10 +76,16 @@
         span
           color: #618abb
 
+          @media screen and (max-width: 387px)
+            font-size: 12px
+
     &_amount
       display: flex
       justify-content: center
       align-items: center
+
+      @media screen and (max-width: 480px)
+        padding-bottom: 20px
 
       button
         display: flex
@@ -84,7 +106,11 @@
         color: #00235e
 
     &_price
+      font-weight: bold
       color: #00235e
+
+      @media screen and (max-width: 480px)
+        padding-bottom: 20px
 
     &_remove
       button
@@ -112,6 +138,12 @@
       color: #00235e
       font-size: 20px
 
+      @media screen and (max-width: 387px)
+        font-size: 15px
+
+      b
+        color: #f80707cb
+
   &_footer
     display: flex
     justify-content: space-between
@@ -126,6 +158,9 @@
       cursor: pointer
       transition: all 500ms ease-in-out
 
+      @media screen and (max-width: 387px)
+        font-size: 12px
+
       &:after
         position: absolute
         top: -50%
@@ -138,6 +173,12 @@
         opacity: 0.9
         z-index: -1
         transition: inherit
+
+        @media screen and (max-width: 387px)
+          position: absolute
+          top: -40%
+          height: 30px
+          width: 30px
 
       &:hover:after
         width: calc( 100% + 20px )
@@ -154,6 +195,11 @@
       background: #fdba21
       cursor: pointer
       transition: 0.5s ease
+
+      @media screen and (max-width: 387px)
+        height: 30px
+        width: 60px
+        font-size: 12px
 
       &:hover
         background: #2e8b55
