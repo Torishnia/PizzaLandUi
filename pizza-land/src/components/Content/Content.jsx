@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Categories from '../Categories/Categories';
 import Sort from '../Sort/Sort';
 import Products from '../Products/Products';
-import style from './content.module.sass';
+import styles from './content.module.sass';
 
 export default function Content({ searchValue }) {
   const [items, setItems] = useState([]);

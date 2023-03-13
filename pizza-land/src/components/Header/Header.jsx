@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 import pizzaSlice from '../../assets/image/pizzaSlice.png';
-import style from './header.module.sass';
 import Search from '../Search/Search';
+import styles from './header.module.sass';
 
 export default function Header({ searchValue, setSearchValue }) {
   return (
-    <div className={style.header}>
-      <div className={style.container} >
+    <div className={styles.header}>
+      <div className={styles.container} >
 
         <Link to='/'>
-          <div className={style.header_logo}>
+          <div className={styles.header_logo}>
 
             <div>
               <img src={pizzaSlice} alt="logo" />
@@ -26,11 +26,11 @@ export default function Header({ searchValue, setSearchValue }) {
           </div>
         </Link>
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-        <div className={style.header_cart}>
+        <div className={styles.header_cart}>
           <Link to='/cart'>
-            <div className={style.cart_block}>
+            <div className={styles.cart_block}>
               <button><HiOutlineShoppingCart /></button>
-              <div className={style.numberCart}>1</div>
+              <div className={styles.numberCart}>1</div>
             </div>
           </Link>
         </div>

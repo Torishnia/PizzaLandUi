@@ -1,11 +1,11 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-import style from './pizzaBlock.module.sass';
+import styles from './pizzaBlock.module.sass';
 
 const Skeleton = (props) => (
   <ContentLoader 
-    className={style.pizza_block}
+    className={styles.pizza_block}
     speed={2}
     width={280}
     height={471}

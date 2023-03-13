@@ -5,13 +5,13 @@ import Header from '../components/Header/Header';
 import Cart from '../pages/Cart';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
-import style from './app.module.sass';
+import styles from './app.module.sass';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
 
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
       <Routes>
         <Route path='/' element={<Home searchValue={searchValue} />}/>

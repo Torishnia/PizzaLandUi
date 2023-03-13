@@ -2,21 +2,21 @@ import React from 'react';
 import { MdYoutubeSearchedFor } from 'react-icons/md';
 import { VscClose } from 'react-icons/vsc';
 
-import style from './search.module.sass';
+import styles from './search.module.sass';
 
 export default function Search({ searchValue, setSearchValue }) {
   return (
-    <div className={style.container}>
-      <MdYoutubeSearchedFor  className={style.icon}/>
+    <div className={styles.container}>
+      <MdYoutubeSearchedFor  className={styles.icon}/>
       <input
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
-        className={style.input} 
+        className={styles.input} 
         placeholder='Search...'
       />
       {searchValue && 
         <VscClose 
-          className={style.removeInput}
+          className={styles.removeInput}
           onClick={() => setSearchValue('')}
         />
       }

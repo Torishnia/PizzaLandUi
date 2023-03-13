@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import style from './sort.module.sass';
+import styles from './sort.module.sass';
 
 export default function Sort({ value, onChangeSort }) {
   const [open, setOpen] = useState(false);
@@ -21,19 +21,19 @@ export default function Sort({ value, onChangeSort }) {
   }
 
   return (
-    <div className={style.sort}>
-      <div className={style.sort_label}>
+    <div className={styles.sort}>
+      <div className={styles.sort_label}>
         {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown/>}
         <b>Sorted by:</b>
         <span onClick={() => setOpen(!open)} >{value.name}</span>
       </div>
-      {open && <div className={style.sort_popul}>
+      {open && <div className={styles.sort_popul}>
         <ul>
           {sortName.map((obj, i) => 
             <li 
               key={i} 
               onClick={() => onClickListItem(obj)}
-              className={value.sortProperty === obj.sortProperty ? style.active : ''}
+              className={value.sortProperty === obj.sortProperty ? styles.active : ''}
             >
               {obj.name}
             </li>
