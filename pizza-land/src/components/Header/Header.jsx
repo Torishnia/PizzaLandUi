@@ -4,8 +4,9 @@ import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 import pizzaSlice from '../../assets/image/pizzaSlice.png';
 import style from './header.module.sass';
+import Search from '../Search/Search';
 
-export default function Header() {
+export default function Header({ searchValue, setSearchValue }) {
   return (
     <div className={style.header}>
       <div className={style.container} >
@@ -24,6 +25,7 @@ export default function Header() {
 
           </div>
         </Link>
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className={style.header_cart}>
           <Link to='/cart'>
             <div className={style.cart_block}>
