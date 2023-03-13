@@ -14,7 +14,12 @@ export default function Search({ searchValue, setSearchValue }) {
         className={style.input} 
         placeholder='Search...'
       />
-      {searchValue && <VscClose className={style.removeInput} />}
+      {searchValue && 
+        <VscClose 
+          className={style.removeInput}
+          onClick={() => setSearchValue('')}
+        />
+      }
     </div>
   )
 }
