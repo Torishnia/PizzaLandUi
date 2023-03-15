@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Categories from '../Categories/Categories';
 import Sort from '../Sort/Sort';
 import Products from '../Products/Products';
 import styles from './content.module.sass';
+import { SearchContext } from '../../app/App';
 
-export default function Content({ searchValue }) {
+export default function Content() {
+  const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);

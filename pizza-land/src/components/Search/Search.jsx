@@ -1,10 +1,13 @@
 import React from 'react';
 import { MdYoutubeSearchedFor } from 'react-icons/md';
 import { VscClose } from 'react-icons/vsc';
+import { SearchContext } from '../../app/App';
 
 import styles from './search.module.sass';
 
-export default function Search({ searchValue, setSearchValue }) {
+export default function Search() {
+  const { searchValue, setSearchValue } = React.useContext(SearchContext);
+
   return (
     <div className={styles.container}>
       <MdYoutubeSearchedFor  className={styles.icon}/>

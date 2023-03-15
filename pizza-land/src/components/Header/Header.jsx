@@ -6,7 +6,7 @@ import pizzaSlice from '../../assets/image/pizzaSlice.png';
 import Search from '../Search/Search';
 import styles from './header.module.sass';
 
-export default function Header({ searchValue, setSearchValue }) {
+export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.container} >
@@ -25,7 +25,7 @@ export default function Header({ searchValue, setSearchValue }) {
 
           </div>
         </Link>
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search />
         <div className={styles.header_cart}>
           <Link to='/cart'>
             <div className={styles.cart_block}>
