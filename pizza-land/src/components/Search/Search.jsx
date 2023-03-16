@@ -1,17 +1,31 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useContext, useRef, useState } from 'react';
 import { MdYoutubeSearchedFor } from 'react-icons/md';
 import { VscClose } from 'react-icons/vsc';
-import { SearchContext } from '../../app/App';
+import debounce from 'lodash.debounce';
 
+import { SearchContext } from '../../app/App';
 import styles from './search.module.sass';
 
 export default function Search() {
-  const { searchValue, setSearchValue } = React.useContext(SearchContext);
+  const [value, setValue] = useState('');
+  const { setSearchValue } = useContext(SearchContext);
   const inputRef = useRef();
+
+  const updateSearchValue = useMemo(() => 
+    debounce((str) => {
+    setSearchValue(str)
+    }, 250),
+  [setSearchValue])
 
   const onClickClear = () => {
     setSearchValue('');
+    setValue('');
     inputRef.current.focus();
+  }
+
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
+    updateSearchValue(event.target.value);
   }
 
   return (
@@ -19,12 +33,12 @@ export default function Search() {
       <MdYoutubeSearchedFor  className={styles.icon}/>
       <input
         ref={inputRef}
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        value={value}
+        onChange={onChangeInput}
         className={styles.input} 
         placeholder='Search...'
       />
-      {searchValue && 
+      {value && 
         <VscClose 
           className={styles.removeInput}
           onClick={onClickClear}
