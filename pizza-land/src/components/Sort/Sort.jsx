@@ -9,9 +9,10 @@ import styles from './sort.module.sass';
 const sortName = [
   { name:'popularity (DESC)', sortProperty: 'rating' },
   { name:'popularity (ASC)', sortProperty: '-rating' },
+  { name: 'alphabet (DESC)', sortProperty: 'title' },
+  { name: 'alphabet (ASC)', sortProperty: '-title' },
   { name: 'price (DESC)', sortProperty: 'price' },
   { name: 'price (ASC)', sortProperty: '-price' },
-  { name: 'alphabet', sortProperty: 'title' },
 ];
 
 export default function Sort() {

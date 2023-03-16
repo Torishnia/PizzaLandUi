@@ -7,6 +7,7 @@ import Sort from '../Sort/Sort';
 import Products from '../Products/Products';
 import { SearchContext } from '../../app/App';
 import styles from './content.module.sass';
+import axios from 'axios';
 
 export default function Content() {
   const dispatch = useDispatch();
@@ -30,14 +31,15 @@ export default function Content() {
     const order = sortType.includes('-') ? 'asc' : 'desc';
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(
-      `${baseUrl}/items?${category}&sortBy=${sortBy}&order=${order}${search}`,
-    )
-    .then((res) => res.json())
-    .then((arr) => {
-      setItems(arr);
-      setIsLoading(false);
-    });
+    axios
+      .get(
+        `${baseUrl}/items?${category}&sortBy=${sortBy}&order=${order}${search}`,
+      )
+      .then((res) => {
+        setItems(res.data);
+        setIsLoading(false);
+      })
+
     window.scrollTo(0, 0);
   }, [categoryId, sortType, searchValue]);
 
