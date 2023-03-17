@@ -3,10 +3,10 @@ import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setSort } from '../../redux/slices/filterSlice';
+import { setSort } from '../../redux/filter/slice';
 import styles from './sort.module.sass';
 
-const sortName = [
+export const sortName = [
   { name:'popularity (DESC)', sortProperty: 'rating' },
   { name:'popularity (ASC)', sortProperty: '-rating' },
   { name: 'alphabet (DESC)', sortProperty: 'title' },
