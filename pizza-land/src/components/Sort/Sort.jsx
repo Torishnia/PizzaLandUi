@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,6 +16,7 @@ export const sortName = [
 ];
 
 export default function Sort() {
+  const sortRef = useRef();
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
   const [open, setOpen] = useState(false);
@@ -25,8 +26,21 @@ export default function Sort() {
     setOpen(false);
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const clickedPath = event.composedPath ? [...event.composedPath()] : [];
+      if (!clickedPath.includes(sortRef.current)) {
+        setOpen(false);
+      }
+    }
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => document.body.removeEventListener('click', handleClickOutside);
+  }, [])
+
   return (
-    <div className={styles.sort}>
+    <div ref={sortRef} className={styles.sort}>
       <div className={styles.sort_label}>
         {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown/>}
         <b>Sorted by:</b>
