@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 import pizzaSlice from '../../assets/image/pizzaSlice.png';
@@ -7,6 +8,8 @@ import Search from '../Search/Search';
 import styles from './header.module.sass';
 
 export default function Header() {
+  const { items } = useSelector(state => state.cart);
+
   return (
     <div className={styles.header}>
       <div className={styles.container} >
@@ -30,7 +33,7 @@ export default function Header() {
           <Link to='/cart'>
             <div className={styles.cart_block}>
               <button><HiOutlineShoppingCart /></button>
-              <div className={styles.numberCart}>1</div>
+              <div className={styles.numberCart}>{items.length}</div>
             </div>
           </Link>
         </div>
