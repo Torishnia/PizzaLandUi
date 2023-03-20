@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from '../components/Header/Header';
-import Cart from '../pages/Cart';
+import Cart from '../pages/Cart/Cart';
 import Home from '../pages/Home';
 import NotFound from '../pages/NotFound';
 import styles from './app.module.sass';

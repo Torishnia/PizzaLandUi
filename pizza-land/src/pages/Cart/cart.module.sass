@@ -32,101 +32,13 @@
       align-items: center
       height: 60px
       color: #c9c9c9
+      background: none
+      border: none
       cursor: pointer
       transition: 0.5s ease
 
       &:hover
         color: #929191
-
-  &_content
-    display: flex
-    justify-content: space-between
-    align-items: center
-    margin: 20px 0
-    padding-bottom: 8px
-    border-bottom: 1px solid #6c7c00
-
-    @media screen and (max-width: 480px)
-      display: flex
-      flex-direction: column
-
-    &_item
-      display: flex
-      justify-content: center
-      align-items: center
-
-      @media screen and (max-width: 480px)
-        padding-bottom: 20px
-
-      img
-        height: 60px
-        width: 100px
-        border-radius: 10px
-
-      &_description
-        display: flex
-        flex-direction: column
-        margin-left: 15px
-
-        h4
-          margin-top: 0
-          margin-bottom: 8px
-          color: #00235e
-
-        span
-          color: #618abb
-
-          @media screen and (max-width: 387px)
-            font-size: 12px
-
-    &_amount
-      display: flex
-      justify-content: center
-      align-items: center
-
-      @media screen and (max-width: 480px)
-        padding-bottom: 20px
-
-      button
-        display: flex
-        justify-content: center
-        align-items: center
-        margin: 0 8px
-        padding: 0
-        color: #f80707
-        background: none
-        border: none
-        cursor: pointer
-        transition: 0.5s ease
-
-        &:hover
-          scale: 1.5
-
-      span
-        color: #00235e
-
-    &_price
-      font-weight: bold
-      color: #00235e
-
-      @media screen and (max-width: 480px)
-        padding-bottom: 20px
-
-    &_remove
-      button
-        display: flex
-        justify-content: center
-        align-items: center
-        padding: 0
-        color: #c9c9c9
-        background: none
-        border: none
-        cursor: pointer
-        transition: 0.5s ease
-
-        &:hover
-          color: #929191
-          scale: 1.5
 
   &_totalOrders
     display: flex

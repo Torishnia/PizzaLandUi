@@ -1,0 +1,70 @@
+.container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin-top: 50px
+
+  @media screen and (max-width: 550px)
+    margin-top: 20px
+
+  h2
+    margin: 8px 0
+    font-size: 36px
+    color: #00235e
+
+    @media screen and (max-width: 387px)
+      font-size: 20px
+
+  img
+    height: 300px
+    width: 400px
+
+    @media screen and (max-width: 387px)
+      height: 200px
+      width: 270px
+
+  p
+    margin: 8px 0
+    color: #2e8b55
+    font-weight: bold
+
+    @media screen and (max-width: 387px)
+      font-size: 12px
+
+  button
+    margin-top: 20px
+    position: relative
+    background: none
+    border: 0
+    color: #618abb
+    font-weight: bold
+    cursor: pointer
+    transition: all 500ms ease-in-out
+
+    @media screen and (max-width: 387px)
+      font-size: 12px
+
+    &:after
+      position: absolute
+      top: -50%
+      right: -10px
+      content: ''
+      width: 35px
+      height: 35px
+      border-radius: 50%
+      background: #00235e
+      opacity: 0.9
+      z-index: -1
+      transition: inherit
+
+      @media screen and (max-width: 387px)
+        position: absolute
+        top: -40%
+        height: 30px
+        width: 30px
+
+    &:hover:after
+      width: calc( 100% + 20px )
+      border-radius: 30px
+      opacity: 0.1

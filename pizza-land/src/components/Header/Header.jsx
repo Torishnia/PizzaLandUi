@@ -10,6 +10,8 @@ import styles from './header.module.sass';
 export default function Header() {
   const { items } = useSelector(state => state.cart);
 
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
   return (
     <div className={styles.header}>
       <div className={styles.container} >
@@ -33,7 +35,7 @@ export default function Header() {
           <Link to='/cart'>
             <div className={styles.cart_block}>
               <button><HiOutlineShoppingCart /></button>
-              <div className={styles.numberCart}>{items.length}</div>
+              <div className={styles.numberCart}>{totalCount}</div>
             </div>
           </Link>
         </div>
