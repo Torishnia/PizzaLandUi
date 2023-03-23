@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
+import { selectCart } from '../../redux/cart/slice';
 import pizzaSlice from '../../assets/image/pizzaSlice.png';
 import Search from '../Search/Search';
 import styles from './header.module.sass';
 
+
 export default function Header() {
-  const { items } = useSelector(state => state.cart);
+  const { items } = useSelector(selectCart);
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 

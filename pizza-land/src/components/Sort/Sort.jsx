@@ -3,7 +3,7 @@ import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setSort } from '../../redux/filter/slice';
+import { selectSort, setSort } from '../../redux/filter/slice';
 import styles from './sort.module.sass';
 
 export const sortName = [
@@ -18,7 +18,7 @@ export const sortName = [
 export default function Sort() {
   const sortRef = useRef();
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
+  const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
 
   const onClickListItem = (obj) => {

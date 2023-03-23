@@ -1,27 +1,28 @@
-import React, { useMemo, useContext, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { MdYoutubeSearchedFor } from 'react-icons/md';
 import { VscClose } from 'react-icons/vsc';
 import debounce from 'lodash.debounce';
 
-import { SearchContext } from '../../app/App';
+import { setSearchValue } from '../../redux/filter/slice';
 import styles from './search.module.sass';
 
 export default function Search() {
+  const dispatch = useDispatch();
   const [value, setValue] = useState('');
-  const { setSearchValue } = useContext(SearchContext);
   const inputRef = useRef();
 
-  const updateSearchValue = useMemo(() => 
-    debounce((str) => {
-    setSearchValue(str)
-    }, 250),
-  [setSearchValue])
-
   const onClickClear = () => {
-    setSearchValue('');
+    dispatch(setSearchValue(''));
     setValue('');
     inputRef.current.focus();
   }
+
+  const updateSearchValue = useMemo(() => 
+    debounce((str) => {
+      dispatch(setSearchValue(str));
+    }, 350),
+  [dispatch])
 
   const onChangeInput = (event) => {
     setValue(event.target.value);
