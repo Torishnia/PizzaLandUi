@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
@@ -11,6 +11,7 @@ import styles from './header.module.sass';
 
 export default function Header() {
   const { items } = useSelector(selectCart);
+  const location = useLocation();
 
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
@@ -34,12 +35,17 @@ export default function Header() {
         </Link>
         <Search />
         <div className={styles.header_cart}>
-          <Link to='/cart'>
-            <div className={styles.cart_block}>
-              <button><HiOutlineShoppingCart /></button>
-              <div className={styles.numberCart}>{totalCount}</div>
-            </div>
-          </Link>
+        {
+          location.pathname !== '/cart' && 
+            (
+              <Link to='/cart'>
+                <div className={styles.cart_block}>
+                  <button><HiOutlineShoppingCart /></button>
+                  <div className={styles.numberCart}>{totalCount}</div>
+                </div>
+              </Link>
+            )
+        }
         </div>
 
       </div>
