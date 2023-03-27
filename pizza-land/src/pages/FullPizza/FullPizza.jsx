@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from './fullPizza.module.sass';
@@ -8,6 +8,7 @@ import styles from './fullPizza.module.sass';
 export default function FullPizza() {
   const [pizza, setPizza] = useState();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchPizza() {
@@ -16,10 +17,11 @@ export default function FullPizza() {
         setPizza(data);
       } catch (error) {
         alert('Error, not found', error);
+        navigate('/');
       }
     }
     fetchPizza();
-  }, [id])
+  }, [id, navigate])
 
   if (!pizza) {
     return 'Loading...';
