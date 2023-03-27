@@ -1,0 +1,138 @@
+.container
+  display: grid
+  place-items: center
+  margin: 40px 15px 0 15px
+
+  @media screen and (max-width: 479px)
+    margin-top: 30px
+
+  h2
+    margin: 0 0 30px 0
+    font-size: 36px
+    font-weight: bold
+    color: #00235e
+
+    @media screen and (max-width: 706px)
+      font-size: 26px
+
+    @media screen and (max-width: 479px)
+      font-size: 20px
+
+    @media screen and (max-width: 387px)
+      font-size: 16px
+
+  &_content
+    margin-bottom: 30px
+    height: 500px
+    width: 773px
+    overflow: hidden
+    border-radius: 10px
+    box-shadow: 0px 2px 4px #00000066
+
+    @media screen and (max-width: 890px)
+      height: 300px
+      width: 510px
+
+    @media screen and (max-width: 706px)
+      height: 250px
+      width: 410px
+
+    @media screen and (max-width: 479px)
+      height: 226px
+      width: 360px
+
+    @media screen and (max-width: 387px)
+      height: 128px
+      width: 210px
+
+    &_wrapper
+      display: flex
+      width: 100%
+      animation: slide 10s infinite linear
+
+      img
+        margin: -2% 0 0 0
+        width: 100%
+        object-fit: cover
+
+  @keyframes slide
+    0%
+      transform: translateX(0)
+    25%
+      transform: translateX(0)
+    30%
+      transform: translateX(-100%)
+    50%
+      transform: translateX(-100%)
+    55%
+      transform: translateX(-200%)
+    75%
+      transform: translateX(-200%)
+    80%
+      transform: translateX(-200%)
+    100%
+      transform: translateX(-200%)
+
+  p
+    font-size: 26px
+    text-align: center
+    color: #618abb
+
+    @media screen and (max-width: 706px)
+      font-size: 18px
+
+    @media screen and (max-width: 479px)
+      font-size: 16px
+
+    @media screen and (max-width: 387px)
+      font-size: 12px
+
+  h4
+    font-size: 26px
+    font-weight: bold
+    color: #2e8b55
+
+    @media screen and (max-width: 706px)
+      font-size: 18px
+
+    @media screen and (max-width: 479px)
+      font-size: 16px
+
+    @media screen and (max-width: 387px)
+      font-size: 12px
+
+  &_button
+    position: relative
+    background: none
+    border: 0
+    color: #618abb
+    font-weight: bold
+    cursor: pointer
+    transition: all 500ms ease-in-out
+
+    @media screen and (max-width: 387px)
+      font-size: 12px
+
+    &:after
+      position: absolute
+      top: -50%
+      right: -10px
+      content: ''
+      width: 35px
+      height: 35px
+      border-radius: 50%
+      background: #00235e
+      opacity: 0.9
+      z-index: -1
+      transition: inherit
+
+      @media screen and (max-width: 387px)
+        position: absolute
+        top: -40%
+        height: 30px
+        width: 30px
+
+    &:hover:after
+      width: calc( 100% + 20px )
+      border-radius: 30px
+      opacity: 0.1

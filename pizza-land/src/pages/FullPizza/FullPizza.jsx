@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+import styles from './fullPizza.module.sass';
 
 export default function FullPizza() {
   const [pizza, setPizza] = useState();
@@ -25,11 +26,21 @@ export default function FullPizza() {
   }
 
   return (
-    <div>
-      <img src={pizza.image} alt='pizza'/>
+    <div className={styles.container}>
       <h2>{pizza.title}</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+      <div className={styles.container_content}>
+        <div className={styles.container_content_wrapper}>
+          {
+            pizza.otherImgs.map((oImg) => (<img key={oImg.id} src={oImg.img} alt={oImg.alt} />))
+          }
+        </div>
+      </div>
+      
+      <p>{pizza.description}</p>
       <h4>{pizza.price} $</h4>
+      <Link to='/'>
+        <button className={styles.container_button}>&larr; Go back</button>
+      </Link>
     </div>
   )
 }
