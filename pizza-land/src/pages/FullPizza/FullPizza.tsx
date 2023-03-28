@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -6,7 +5,16 @@ import axios from 'axios';
 import styles from './fullPizza.module.sass';
 
 export default function FullPizza() {
-  const [pizza, setPizza] = useState();
+  const [pizza, setPizza] = useState<{
+    title: string,
+    otherImgs: [{
+      id: number,
+      img: string,
+      alt: string,
+    }],
+    description: string,
+    price: number,
+  }>();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -16,7 +24,7 @@ export default function FullPizza() {
         const { data } = await axios.get('https://64021c7d3779a86262658057.mockapi.io/items/' + id);
         setPizza(data);
       } catch (error) {
-        alert('Error, not found', error);
+        alert('Error, not found');
         navigate('/');
       }
     }
@@ -24,7 +32,9 @@ export default function FullPizza() {
   }, [id, navigate])
 
   if (!pizza) {
-    return 'Loading...';
+    return (
+      <span>'Loading...'</span>
+    );
   }
 
   return (
