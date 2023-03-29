@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { IProductsProps } from '../../interfaces';
 
 import PizzaBlock from '../PizzaBlock/PizzaBlock';
 import Skeleton from '../PizzaBlock/Skeleton';
 import styles from './products.module.sass';
 
-export default function Products({ items, isLoading }) {
-  const pizzas = items.map((item) => <PizzaBlock key={item.id} {...item} />);
-  const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index}/>);
+const Products: React.FC<IProductsProps> = (props: IProductsProps) => {
+  const { products, isLoading } = props;
+  const pizzas = products.map((el) => <PizzaBlock key={el.id} {...el} />);
+  const skeletons = [...new Array(products.length)].map((_, index) => <Skeleton key={index}/>);
 
   return (
     <div>
@@ -24,3 +25,5 @@ export default function Products({ items, isLoading }) {
     </div>
   )
 }
+
+export default Products;

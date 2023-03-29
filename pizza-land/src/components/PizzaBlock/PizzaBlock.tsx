@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { IPizza, IPizzaToCart } from '../../interfaces';
 
 import { addItem, selectCartItemById } from '../../redux/cart/slice';
 import styles from './pizzaBlock.module.sass';
 
-export default function PizzaBlock({ id, image, title, price, sizes, types }) {
+const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {
+  const { id, image, title, price, sizes, types } = props;
+
   const dispatch = useDispatch();
   const cartItem = useSelector(selectCartItemById(id));
   const [activeType, setActiveType] = useState(0);
@@ -15,7 +18,7 @@ export default function PizzaBlock({ id, image, title, price, sizes, types }) {
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item: IPizzaToCart = {
       id,
       title,
       price,
@@ -73,3 +76,5 @@ export default function PizzaBlock({ id, image, title, price, sizes, types }) {
     </div>
   )
 }
+
+export default PizzaBlock;

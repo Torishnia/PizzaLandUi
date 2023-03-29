@@ -1,4 +1,3 @@
-import React from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
@@ -7,7 +6,17 @@ import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
 
 import styles from './cartItem.module.sass';
 
-export default function CartItem({ id, title, type, size, price, count, image }) {
+type CartItemProps = {
+  id: string;
+  title: string;
+  type: string;
+  size: string;
+  price: number;
+  count: number;
+  image: string;
+}
+
+export default function CartItem({ id, title, type, size, price, count, image }: CartItemProps) {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {

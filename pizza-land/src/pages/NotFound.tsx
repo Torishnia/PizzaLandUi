@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Oops from '../assets/image/page_not_found.jpg';
 import styles from '../pages/not_found.module.sass';
 

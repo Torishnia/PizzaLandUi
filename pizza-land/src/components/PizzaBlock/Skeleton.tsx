@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader";
 
 import styles from './pizzaBlock.module.sass';
 
-const Skeleton = (props) => (
+const Skeleton = (props: any) => (
   <ContentLoader 
     className={styles.pizza_block}
     speed={2}

@@ -5,9 +5,8 @@ import qs from 'qs';
 
 import { selectFilter, setCategoryId, setFilters } from '../../redux/filter/slice';
 import Categories from '../Categories/Categories';
-import Sort, { sortName } from '../Sort/Sort';
+import Sort, { sortList } from '../Sort/Sort';
 import Products from '../Products/Products';
-import { SearchContext } from '../../app/App';
 import styles from './content.module.sass';
 import { fetchPizzas, selectPizzaData } from '../../redux/pizza/slice';
 
@@ -17,7 +16,7 @@ export default function Content() {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { items, status } = useSelector(selectPizzaData);
+  const { products, status } = useSelector(selectPizzaData);
   const { categoryId, sort, searchValue } = useSelector(selectFilter);
   const { sortProperty } = sort;
 
@@ -63,7 +62,7 @@ export default function Content() {
   useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
-      const sort = sortName.find((obj) => obj.sortProperty === params.sortProperty);
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
 
       dispatch(
         setFilters({
@@ -86,7 +85,7 @@ export default function Content() {
       <Categories value={categoryId} onChangeCategory={onChangeCategory} />
       <Sort />
       <h2>All pizzas</h2>
-      <Products items={items} isLoading={status} />
+      <Products products={products} isLoading={status} />
     </div>
   )
 }
