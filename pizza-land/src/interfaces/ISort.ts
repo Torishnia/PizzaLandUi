@@ -1,4 +1,4 @@
 export interface ISort {
   sortName: string;
-  sortProperty: string;
+  sortProperty: 'rating' | 'title' | 'price' |'-rating' | '-title' | '-price';
 }

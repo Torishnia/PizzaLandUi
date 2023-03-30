@@ -25,6 +25,7 @@ const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {
       image,
       type: typeNames[activeType],
       size: sizes[activeSize],
+      count: 0,
     };
     dispatch(addItem(item));
   }
@@ -37,8 +38,8 @@ const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {
           src={image}
           alt='Pizza'
         />
+        <h4 className={styles.pizza_block_title}>{title}</h4>
       </Link>
-      <h4 className={styles.pizza_block_title}>{title}</h4>
       <div className={styles.pizza_block_selector}>
         <ul>
           { types.map((type, i) => (

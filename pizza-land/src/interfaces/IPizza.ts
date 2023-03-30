@@ -4,6 +4,7 @@ export interface IPizzaPayload {
   sizes: number[];
   types: number[];
   image: string;
+  count: number;
 }
 
 export interface IPizza extends IPizzaPayload {
@@ -13,4 +14,9 @@ export interface IPizza extends IPizzaPayload {
 export interface IPizzaToCart extends Omit<IPizza, 'sizes' | 'types'> {
   type: string;
   size: number;
+}
+
+export interface IPizzaSliceState {
+  products: IPizza[];
+  status: 'loading' | 'success' | 'error';
 }

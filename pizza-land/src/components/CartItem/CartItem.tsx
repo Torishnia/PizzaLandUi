@@ -2,6 +2,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useDispatch } from 'react-redux';
+import { IPizzaToCart } from '../../interfaces';
 import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
 
 import styles from './cartItem.module.sass';
@@ -20,7 +21,7 @@ export default function CartItem({ id, title, type, size, price, count, image }:
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({id}));
+    dispatch(addItem({id} as IPizzaToCart));
   }
 
   const onClickMinus = () => {

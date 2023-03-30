@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
@@ -9,10 +9,11 @@ import Sort, { sortList } from '../Sort/Sort';
 import Products from '../Products/Products';
 import styles from './content.module.sass';
 import { fetchPizzas, selectPizzaData } from '../../redux/pizza/slice';
+import { useAppDispatch } from '../../redux/store';
 
 const Content: React.FC = () => { 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
@@ -32,7 +33,6 @@ const Content: React.FC = () => {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
-      // @ts-ignore
       fetchPizzas({
         baseUrl,
         category,
@@ -45,36 +45,36 @@ const Content: React.FC = () => {
     window.scrollTo(0, 0);
   }, [categoryId, dispatch, searchValue, sortProperty]);
 
-  // Якщо змінили параметри та був перший рендер
-  useEffect(() => {
-    if (isMounted.current) {
-      const params = {
-        categoryId,
-        sortProperty,
-      }
-      const queryString = qs.stringify(params);
+  // // Якщо змінили параметри та був перший рендер
+  // useEffect(() => {
+  //   if (isMounted.current) {
+  //     const params = {
+  //       categoryId,
+  //       sortProperty,
+  //     }
+  //     const queryString = qs.stringify(params);
   
-      navigate(`?${queryString}`);
-    }
-    isMounted.current = true;
-  }, [categoryId, sortProperty, navigate])
+  //     navigate(`?${queryString}`);
+  //   }
+  //   isMounted.current = true;
+  // }, [categoryId, sortProperty, navigate])
 
-  // Якщо був перший рендер, то перевіряємо URL-параметри та зберігаємо в redux
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
-      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
+  // // Якщо був перший рендер, то перевіряємо URL-параметри та зберігаємо в redux
+  // useEffect(() => {
+  //   if (window.location.search) {
+  //     const params = qs.parse(window.location.search.substring(1));
+  //     const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
 
-      dispatch(
-        setFilters({
-          ...params,
-          sort,
-        }),
-      );
+  //     dispatch(
+  //       setFilters({
+  //         ...params,
+  //         sort,
+  //       }),
+  //     );
 
-      isSearch.current = true;
-    }
-  }, [dispatch])
+  //     isSearch.current = true;
+  //   }
+  // }, [dispatch])
 
   //Якщо був перший рендер, то робимо запит на піци
   useEffect(() => {
