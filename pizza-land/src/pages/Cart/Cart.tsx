@@ -5,7 +5,7 @@ import { HiOutlineTrash } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './cart.module.sass';
-import CartItem from './CartItem';
+import CartItem from '../../components/CartItem/CartItem';
 import { clearItems, selectCart } from '../../redux/cart/slice';
 import CartEmpty from '../../components/CartEmpty/CartEmpty';
 
@@ -13,7 +13,7 @@ export default function Cart() {
   const dispatch = useDispatch();
   const {totalPrice, items} = useSelector(selectCart);
 
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   const onClickClear = () => {
     if (window.confirm('Remove cart?')) {
@@ -44,7 +44,7 @@ export default function Cart() {
       </div>
 
       <div>
-        {items.map((item) => (
+        {items.map((item: any) => (
           <CartItem key={item.id} {...item} />
         ))}
       </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { sliders } from '../../data';
 import styles from './sliders.module.sass';
 
-export default function Sliders() {
+const Sliders: React.FC = () => {
   return (
     <div className={styles.content}>
       <div className={styles.wrapper}>
@@ -12,3 +12,5 @@ export default function Sliders() {
   </div>
   )
 }
+
+export default Sliders;

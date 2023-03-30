@@ -22,15 +22,16 @@ export default function Sort() {
   const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
 
-  const onClickListItem = (obj: ISort) => {
+  const onClickListItem = (obj: any) => {
     dispatch(setSort(obj));
     setOpen(false);
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: MouseEvent) => {
       const clickedPath = event.composedPath ? [...event.composedPath()] : [];
-      if (!clickedPath.includes(sortRef.current)) {
+
+      if (sortRef.current && !clickedPath.includes(sortRef.current)) {
         setOpen(false);
       }
     }

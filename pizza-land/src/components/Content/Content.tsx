@@ -10,7 +10,7 @@ import Products from '../Products/Products';
 import styles from './content.module.sass';
 import { fetchPizzas, selectPizzaData } from '../../redux/pizza/slice';
 
-export default function Content() { 
+const Content: React.FC = () => { 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -20,8 +20,8 @@ export default function Content() {
   const { categoryId, sort, searchValue } = useSelector(selectFilter);
   const { sortProperty } = sort;
 
-  const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
+  const onChangeCategory = (i: number) => {
+    dispatch(setCategoryId(i));
   }
 
   const getPizzas = useCallback(async () => {
@@ -32,6 +32,7 @@ export default function Content() {
     const search = searchValue ? `&search=${searchValue}` : '';
 
     dispatch(
+      // @ts-ignore
       fetchPizzas({
         baseUrl,
         category,
@@ -82,10 +83,12 @@ export default function Content() {
 
   return (
     <div>
-      <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+      <Categories categoryValue={categoryId} onChangeCategory={onChangeCategory} />
       <Sort />
       <h2>All pizzas</h2>
       <Products products={products} isLoading={status} />
     </div>
   )
 }
+
+export default Content;

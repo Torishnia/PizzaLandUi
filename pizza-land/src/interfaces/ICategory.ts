@@ -3,5 +3,5 @@ export interface ICategory {
 }
 
 export interface ICategoryProps extends ICategory {
-  onChangeCategory: Function;
+  onChangeCategory: (i: number) => void;
 }
