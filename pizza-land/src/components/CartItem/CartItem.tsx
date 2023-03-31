@@ -45,9 +45,23 @@ export default function CartItem({ id, title, type, size, price, count, image }:
       </div>
 
       <div className={styles.content_amount}>
-        <button onClick={onClickMinus} ><AiOutlineMinusCircle size={20} /></button>
+        <button 
+          disabled={count === 1} 
+          className={count === 1 
+            ? styles.content_amount_disabled 
+            : styles.content_amount_button
+          } 
+          onClick={onClickMinus} 
+        >
+          <AiOutlineMinusCircle size={20} />
+        </button>
         <span>{count}</span>
-        <button onClick={onClickPlus} ><AiOutlinePlusCircle size={20}/></button>
+        <button 
+          className={styles.content_amount_button} 
+          onClick={onClickPlus} 
+        >
+          <AiOutlinePlusCircle size={20}/>
+        </button>
       </div>
 
       <div className={styles.content_price}>{price * count} $</div>
