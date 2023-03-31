@@ -1,7 +1,9 @@
+import React from 'react';
+
 import { ICategoryProps } from '../../interfaces';
 import styles from './categories.module.sass';
 
-const Categories: React.FC<ICategoryProps> = (props: ICategoryProps) => {
+const Categories: React.FC<ICategoryProps> = React.memo((props: ICategoryProps) => {
   const { categoryValue, onChangeCategory } = props;
   const categories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy'];
 
@@ -16,6 +18,6 @@ const Categories: React.FC<ICategoryProps> = (props: ICategoryProps) => {
       </ul>
     </div>
   )
-}
+})
 
 export default Categories;

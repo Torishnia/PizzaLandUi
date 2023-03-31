@@ -21,9 +21,9 @@ const Content: React.FC = () => {
   const { categoryId, sort, searchValue } = useSelector(selectFilter);
   const { sortProperty } = sort;
 
-  const onChangeCategory = (i: number) => {
+  const onChangeCategory = useCallback((i: number) => {
     dispatch(setCategoryId(i));
-  }
+  }, [dispatch])
 
   const getPizzas = useCallback(async () => {
     const baseUrl = 'https://64021c7d3779a86262658057.mockapi.io';
@@ -84,7 +84,7 @@ const Content: React.FC = () => {
   return (
     <div>
       <Categories categoryValue={categoryId} onChangeCategory={onChangeCategory} />
-      <Sort />
+      <Sort value={sort}/>
       <h2>All pizzas</h2>
       <Products products={products} isLoading={status} />
     </div>

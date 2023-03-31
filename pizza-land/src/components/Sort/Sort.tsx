@@ -1,10 +1,11 @@
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { IoMdArrowDropup } from 'react-icons/io';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { ISort } from '../../interfaces';
-import { selectSort, setSort } from '../../redux/filter/slice';
+import { ISort, ISortProps } from '../../interfaces';
+import { setSort } from '../../redux/filter/slice';
 import styles from './sort.module.sass';
 
 export const sortList: ISort[] = [
@@ -16,10 +17,10 @@ export const sortList: ISort[] = [
   { sortName: 'price (ASC)', sortProperty: '-price' },
 ];
 
-export default function Sort() {
+const Sort: React.FC<ISortProps> = React.memo((props) => {
+  const { value } = props;
   const sortRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
-  const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
 
   const onClickListItem = (obj: any) => {
@@ -46,7 +47,7 @@ export default function Sort() {
       <div className={styles.sort_label}>
         {open ? <IoMdArrowDropup /> : <IoMdArrowDropdown/>}
         <b>Sorted by:</b>
-        <span onClick={() => setOpen(!open)} >{sort.sortName}</span>
+        <span onClick={() => setOpen(!open)} >{value.sortName}</span>
       </div>
       {open && <div className={styles.sort_popul}>
         <ul>
@@ -54,7 +55,7 @@ export default function Sort() {
             <li 
               key={i} 
               onClick={() => onClickListItem(obj)}
-              className={sort.sortProperty === obj.sortProperty ? styles.active : ''}
+              className={value.sortProperty === obj.sortProperty ? styles.active : ''}
             >
               {obj.sortName}
             </li>
@@ -63,4 +64,6 @@ export default function Sort() {
       </div>}
     </div>
   )
-}
+})
+
+export default Sort;

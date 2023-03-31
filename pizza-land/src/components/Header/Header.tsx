@@ -9,7 +9,7 @@ import Search from '../Search/Search';
 import styles from './header.module.sass';
 
 
-export default function Header() {
+const Header: React.FC = () => {
   const { items } = useSelector(selectCart);
   const location = useLocation();
 
@@ -33,7 +33,7 @@ export default function Header() {
 
           </div>
         </Link>
-        <Search />
+        {location.pathname !== '/cart' && <Search />}
         <div className={styles.header_cart}>
         {
           location.pathname !== '/cart' && 
@@ -52,3 +52,5 @@ export default function Header() {
     </div>
   )
 }
+
+export default Header;
