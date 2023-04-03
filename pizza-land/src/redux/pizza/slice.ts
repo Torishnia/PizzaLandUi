@@ -1,19 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IPizza, IPizzaSliceState } from '../../interfaces';
-import { RootState } from '../store';
+import { fetchPizzas } from './asyncActions';
 
-export const fetchPizzas = createAsyncThunk<IPizza[], Record<string, string>>(
-  'pizza/fetchPizzasStatus', 
-  async (params) => {
-    const { baseUrl, category, sortBy, order, search, } = params;
-    const { data } = await axios.get<IPizza[]>(
-      `${baseUrl}/items?${category}&sortBy=${sortBy}&order=${order}${search}`,
-    );
-    return data;
-  }
-)
 const initialState: IPizzaSliceState = {
   products: [],
   status: 'loading',
@@ -42,8 +31,6 @@ const pizzaSlice = createSlice({
     })
   },
 })
-
-export const selectPizzaData = (state: RootState) => state.pizza;
 
 export const { setItems } = pizzaSlice.actions;
 

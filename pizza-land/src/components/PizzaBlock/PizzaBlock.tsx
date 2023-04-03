@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IPizza, IPizzaToCart } from '../../interfaces';
+import { selectCartItemById } from '../../redux/cart/selectors';
 
-import { addItem, selectCartItemById } from '../../redux/cart/slice';
+import { addItem } from '../../redux/cart/slice';
 import styles from './pizzaBlock.module.sass';
 
 const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {

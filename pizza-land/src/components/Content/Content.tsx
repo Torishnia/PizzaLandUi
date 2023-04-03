@@ -3,13 +3,15 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
 
-import { selectFilter, setCategoryId, setFilters } from '../../redux/filter/slice';
+import { setCategoryId, setFilters } from '../../redux/filter/slice';
 import Categories from '../Categories/Categories';
 import Sort, { sortList } from '../Sort/Sort';
 import Products from '../Products/Products';
 import styles from './content.module.sass';
-import { fetchPizzas, selectPizzaData } from '../../redux/pizza/slice';
+import { fetchPizzas } from '../../redux/pizza/asyncActions';
 import { useAppDispatch } from '../../redux/store';
+import { selectFilter } from '../../redux/filter/selectors';
+import { selectPizzaData } from '../../redux/pizza/selectors';
 
 const Content: React.FC = () => { 
   const navigate = useNavigate();
