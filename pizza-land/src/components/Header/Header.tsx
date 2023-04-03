@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
-import { selectCart } from '../../redux/cart/slice';
+import { selectCart } from '../../redux/cart/selectors';
 import pizzaSlice from '../../assets/image/pizzaSlice.png';
 import Search from '../Search/Search';
 import styles from './header.module.sass';
@@ -12,8 +12,17 @@ import styles from './header.module.sass';
 const Header: React.FC = () => {
   const { items } = useSelector(selectCart);
   const location = useLocation();
+  const isMounted = useRef(false);
 
   const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items])
 
   return (
     <div className={styles.header}>
