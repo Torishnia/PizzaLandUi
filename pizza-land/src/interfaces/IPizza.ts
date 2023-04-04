@@ -20,3 +20,11 @@ export interface IPizzaSliceState {
   products: IPizza[];
   status: 'loading' | 'success' | 'error';
 }
+
+export interface ISearchPizzaParams {
+  baseUrl: string;
+  sortBy: string;
+  order: string;
+  category: string;
+  search: string;
+}
