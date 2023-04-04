@@ -33,7 +33,7 @@ export default function FullPizza() {
 
   if (!pizza) {
     return (
-      <span>'Loading...'</span>
+      <span>Loading pizza...</span>
     );
   }
 
