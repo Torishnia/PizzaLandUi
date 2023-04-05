@@ -51,7 +51,10 @@ export default function Cart() {
       </div>
 
       <div className={styles.container_totalOrders}>
-        <span>Pizzas: <b>{totalCount}</b></span>
+        {totalCount <= 1 
+          ? <span>Pizza: <b>{totalCount}</b></span>
+          : <span>Pizzas: <b>{totalCount}</b></span>
+        }
         <span>Total: <b>{totalPrice} $</b></span>
       </div>
 
