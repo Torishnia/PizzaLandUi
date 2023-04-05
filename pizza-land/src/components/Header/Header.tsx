@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { HiOutlineShoppingCart } from 'react-icons/hi';
 
@@ -10,6 +10,7 @@ import styles from './header.module.sass';
 
 
 const Header: React.FC = () => {
+  const { id } = useParams();
   const { items } = useSelector(selectCart);
   const location = useLocation();
   const isMounted = useRef(false);
@@ -42,7 +43,7 @@ const Header: React.FC = () => {
 
           </div>
         </Link>
-        {location.pathname !== '/cart' && <Search />}
+        { (location.pathname !== '/cart' && location.pathname !== `/pizza/${id}`) && <Search /> }
         <div className={styles.header_cart}>
         {
           location.pathname !== '/cart' && 
