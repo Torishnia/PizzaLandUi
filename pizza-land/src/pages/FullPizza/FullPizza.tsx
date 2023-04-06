@@ -3,9 +3,12 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import styles from './fullPizza.module.sass';
+import PizzaType from '../../components/PizzaType/PizzaType';
 
 export default function FullPizza() {
   const [pizza, setPizza] = useState<{
+    id: string,
+    image: string,
     title: string,
     otherImgs: [{
       id: number,
@@ -14,6 +17,9 @@ export default function FullPizza() {
     }],
     description: string,
     price: number,
+    types: number[],
+    sizes: number[],
+    count: 0,
   }>();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -39,7 +45,9 @@ export default function FullPizza() {
 
   return (
     <div className={styles.container}>
+
       <h2>{pizza.title}</h2>
+
       <div className={styles.container_content}>
         <div className={styles.container_content_wrapper}>
           {
@@ -47,12 +55,20 @@ export default function FullPizza() {
           }
         </div>
       </div>
-      
+
       <p>{pizza.description}</p>
-      <h4>{pizza.price} $</h4>
-      <Link to='/'>
-        <button className={styles.container_button}>&larr; Go back</button>
-      </Link>
+
+      <div className={styles.container_info}>
+        <div className={styles.container_info_back}>
+          <Link to='/'>
+            <button className={styles.container_info_back_button}>&larr; Go back</button>
+          </Link>
+        </div>
+        <div className={styles.container_info_type}>
+          <PizzaType id={pizza.id} title={pizza.title} price={pizza.price} sizes={pizza.sizes} types={pizza.types} image={pizza.image} count={0} />
+        </div>
+      </div>
+
     </div>
   )
 }
