@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { IPizza, IPizzaToCart } from '../../interfaces';
 import { selectCartItemById } from '../../redux/cart/selectors';
-import { addItem } from '../../redux/cart/slice';
+import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
 import styles from './pizzaType.module.sass';
 
 const PizzaType: React.FC<IPizza> = (props: IPizza) => {
@@ -28,6 +28,13 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
       count: 0,
     };
     dispatch(addItem(item));
+  }
+
+  const onClickRemove = () => {
+    dispatch(minusItem(id));
+    if (addedCount === 1) {
+      dispatch(removeItem(id));
+    }
   }
 
   return (
@@ -58,12 +65,21 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
       </div>
       <div className={styles.bottom}>
         <div className={styles.bottom_price}>{price} $</div>
-        <div className={styles.bottom_button}>
-          <button onClick={onClickAdd} className={styles.bottom_button_add}>
+        <div>
+          {addedCount > 0 &&
+            (<button 
+              onClick={onClickRemove} 
+              className={styles.bottom_buttonRemove}
+            >
+              Remove
+            </button>)
+          }
+        </div>
+        <div>
+          <button onClick={onClickAdd} className={styles.bottom_buttonAdd}>
             Add 
             {addedCount > 0 && <span>{addedCount}</span>}
           </button>
-          {/* <button>Remove</button> */}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import PizzaType from '../PizzaType/PizzaType';
 import styles from './pizzaBlock.module.sass';
 
 const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {
-  const { id, image, title, price, sizes, types } = props;
+  const { id, image, title, price, sizes, types, count } = props;
 
   return (
     <div className={styles.pizza_block}>
@@ -18,7 +18,7 @@ const PizzaBlock: React.FC<IPizza> = (props: IPizza) => {
         />
         <h4 className={styles.pizza_block_title}>{title}</h4>
       </Link>
-      <PizzaType id={id} title={title} price={price} sizes={sizes} types={types} image={image} count={0} />
+      <PizzaType id={id} title={title} price={price} sizes={sizes} types={types} image={image} count={count} />
     </div>
   )
 }

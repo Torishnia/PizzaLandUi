@@ -65,7 +65,7 @@ export default function FullPizza() {
           </Link>
         </div>
         <div className={styles.container_info_type}>
-          <PizzaType id={pizza.id} title={pizza.title} price={pizza.price} sizes={pizza.sizes} types={pizza.types} image={pizza.image} count={0} />
+          <PizzaType id={pizza.id} title={pizza.title} price={pizza.price} sizes={pizza.sizes} types={pizza.types} image={pizza.image} count={pizza.count} />
         </div>
       </div>
 
