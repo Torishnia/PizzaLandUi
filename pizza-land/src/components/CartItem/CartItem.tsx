@@ -7,16 +7,6 @@ import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
 
 import styles from './cartItem.module.sass';
 
-// type CartItemProps = {
-//   id: string;
-//   title: string;
-//   type: string;
-//   size: string;
-//   price: number;
-//   count: number;
-//   image: string;
-// }
-
 export default function CartItem({ id, title, type, size, price, count, image }: IPizzaToCart) {
   const dispatch = useDispatch();
 
