@@ -12,6 +12,7 @@ import { selectFilter } from '../../redux/filter/selectors';
 import { selectPizzaData } from '../../redux/pizza/selectors';
 import { setCategoryId, setFilters } from '../../redux/filter/slice';
 import { ISearchPizzaParams } from '../../interfaces';
+import styles from './content.module.sass';
 
 const Content: React.FC = () => { 
   const navigate = useNavigate();

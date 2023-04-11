@@ -1,9 +1,11 @@
+@import '../../variables'
+
 .selector
   display: flex
   flex-direction: column
   padding: 6px
-  background-color: #fff
-  color: #00235e
+  background-color: $colorWhite
+  color: $colorDarkBlue
 
   ul
     display: flex
@@ -24,15 +26,15 @@
 
     &:hover,
     &.active
-      box-shadow: 0px 2px 4px #00000066
+      box-shadow: 0px 2px 4px $colorBlackShadow
       border-radius: 5px
 
     &:hover
-      background-color: #fff
+      background-color: $colorWhite
 
     &.active
-      background-color: #00235e
-      color: #fff
+      background-color: $colorDarkBlue
+      color: $colorWhite
 
 .bottom
   display: flex
@@ -53,8 +55,8 @@
     font-weight: bold
     font-size: 15px
     font-family: "Nunito", Roboto, Tahoma, sans-serif
-    background-color: #000
-    color: #fff
+    background-color: $colorBlack
+    color: $colorWhite
 
     border: none
     border-radius: 10px
@@ -62,7 +64,7 @@
     transition: 0.8s easy
 
     &:hover
-      background-color: #2e8b55
+      background-color: $colorGreen
 
   &_buttonAdd
     display: flex
@@ -74,8 +76,8 @@
     font-weight: bold
     font-size: 15px
     font-family: "Nunito", Roboto, Tahoma, sans-serif
-    background-color: #fdba21
-    color: #fff
+    background-color: $colorOrange
+    color: $colorWhite
 
     border: none
     border-radius: 10px
@@ -83,7 +85,7 @@
     transition: 0.8s easy
 
     &:hover
-      background-color: #2e8b55
+      background-color: $colorGreen
 
     span
       display: flex
@@ -94,5 +96,5 @@
       width: 18px
       font-family: "Nunito", Roboto, Tahoma, sans-serif
       border-radius: 50%
-      background: #fff
-      color: #fdba21
+      background: $colorWhite
+      color: $colorOrange

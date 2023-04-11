@@ -1,3 +1,5 @@
+@import '../../variables'
+
 .container
   margin: 70px 200px 100px 200px
 
@@ -20,25 +22,25 @@
       justify-content: center
       align-items: center
       height: 60px
-      color: #2e8b55
+      color: $colorGreen
 
       h2
         margin: 0 0 0 8px
-        color: #2e8b55
+        color: $colorGreen
 
     &_trash
       display: flex
       justify-content: center
       align-items: center
       height: 60px
-      color: #c9c9c9
+      color: $colorLightGrey
       background: none
       border: none
       cursor: pointer
       transition: 0.5s ease
 
       &:hover
-        color: #929191
+        color: $colorDarkGrey
 
   &_totalOrders
     display: flex
@@ -47,14 +49,14 @@
     margin: 50px 0
 
     span
-      color: #00235e
+      color: $colorDarkBlue
       font-size: 20px
 
       @media screen and (max-width: 387px)
         font-size: 15px
 
       b
-        color: #f80707cb
+        color: $colorRed
 
   &_footer
     display: flex
@@ -65,7 +67,7 @@
       position: relative
       background: none
       border: 0
-      color: #618abb
+      color: $colorBlue
       font-weight: bold
       cursor: pointer
       transition: all 500ms ease-in-out
@@ -81,7 +83,7 @@
         width: 35px
         height: 35px
         border-radius: 50%
-        background: #00235e
+        background: $colorDarkBlue
         opacity: 0.9
         z-index: -1
         transition: inherit
@@ -103,8 +105,8 @@
       font-weight: bold
       border: none
       border-radius: 30px
-      color: #fff
-      background: #fdba21
+      color: $colorWhite
+      background: $colorOrange
       cursor: pointer
       transition: 0.5s ease
 
@@ -114,4 +116,4 @@
         font-size: 12px
 
       &:hover
-        background: #2e8b55
+        background: $colorGreen

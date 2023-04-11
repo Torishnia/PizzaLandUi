@@ -1,3 +1,5 @@
+@import '../../variables'
+
 .sort
   position: relative
 
@@ -12,11 +14,11 @@
 
     b
       margin-right: 8px
-      color: #00235e
+      color: $colorDarkBlue
 
     span
-      color: #fdba21
-      border-bottom: 1px dashed #fdba21
+      color: $colorOrange
+      border-bottom: 1px dashed $colorOrange
       cursor: pointer
 
   &_popul
@@ -24,8 +26,8 @@
     right: 17px
     margin-top: 10px
     padding: 10px
-    background-color: #fff
-    box-shadow: 0px 5px 15px #00000017
+    background-color: $colorWhite
+    box-shadow: 0px 5px 15px $colorBlackShadow02
     border-radius: 10px
     overflow: hidden
     ul
@@ -38,15 +40,15 @@
         margin-bottom: 5px
         padding: 3px
         cursor: pointer
-        color: #00235e
+        color: $colorDarkBlue
 
         @media screen and (max-width: 387px)
           font-size: 12px
 
         &.active,
         &:hover
-          background-color: #618abb
-          color: #fff
+          background-color: $colorBlue
+          color: $colorWhite
           border-radius: 5px
 
         &.active

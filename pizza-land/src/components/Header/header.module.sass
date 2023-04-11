@@ -1,5 +1,7 @@
+@import '../../variables'
+
 .header
-  border-bottom: 1px solid #6c7c00
+  border-bottom: 1px solid $colorOlive
   box-sizing: border-box
 
 .container
@@ -28,7 +30,7 @@
 
   h1
     margin-bottom: 5px
-    color: #00235e
+    color: $colorDarkBlue
     font-size: 24px
     text-transform: uppercase
     font-weight: 800
@@ -38,7 +40,7 @@
 
   p
     margin: 5px 0
-    color: #618abb
+    color: $colorBlue
 
   @media screen and (max-width: 387px)
     font-size: 10px
@@ -67,14 +69,14 @@
     text-align: center
     border: none
     border-radius: 50%
-    background-color: #fdba21
-    color: #fff
+    background-color: $colorOrange
+    color: $colorWhite
     cursor: pointer
     font-size: 24px
     transition: 0.5s ease
 
     &:hover
-      background-color: #2e8b55
+      background-color: $colorGreen
 
     @media screen and (max-width: 387px)
       margin-top: 5px
@@ -92,8 +94,8 @@
   width: 10px
   border: none
   border-radius: 50%
-  background-color: #fff
-  color: #00235e
+  background-color: $colorWhite
+  color: $colorDarkBlue
   text-align: center
   font-size: 8px
 

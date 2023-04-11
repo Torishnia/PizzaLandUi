@@ -1,3 +1,5 @@
+@import '../../variables'
+
 .container
   display: flex
   flex-direction: column
@@ -12,7 +14,7 @@
   h2
     margin: 8px 0
     font-size: 36px
-    color: #00235e
+    color: $colorDarkBlue
 
     @media screen and (max-width: 387px)
       font-size: 20px
@@ -27,7 +29,7 @@
 
   p
     margin: 8px 0
-    color: #2e8b55
+    color: $colorGreen
     font-weight: bold
 
     @media screen and (max-width: 387px)
@@ -38,7 +40,7 @@
     position: relative
     background: none
     border: 0
-    color: #618abb
+    color: $colorBlue
     font-weight: bold
     cursor: pointer
     transition: all 500ms ease-in-out
@@ -54,7 +56,7 @@
       width: 35px
       height: 35px
       border-radius: 50%
-      background: #00235e
+      background: $colorDarkBlue
       opacity: 0.9
       z-index: -1
       transition: inherit

@@ -1,3 +1,5 @@
+@import '../../variables'
+
 .container
   display: flex
   box-sizing: border-box
@@ -41,15 +43,15 @@
 .input
   padding: 10px 10px 10px 35px
   width: 100%
-  border: 1px solid #fdba21
+  border: 1px solid $colorOrange
   border-radius: 10px
   font-size: 15px
   box-sizing: border-box
 
   &:focus
     outline: none
-    border: 1px solid #2e8b55
-    color: #00235e
+    border: 1px solid $colorGreen
+    color: $colorDarkBlue
 
   @media screen and (max-width: 522px)
     padding: 10px 20px
