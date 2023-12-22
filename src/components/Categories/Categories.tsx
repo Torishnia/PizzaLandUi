@@ -1,23 +1,38 @@
 import React from 'react';
 
-import { ICategoryProps } from '../../interfaces';
 import styles from './categories.module.sass';
 
-const Categories: React.FC<ICategoryProps> = React.memo((props: ICategoryProps) => {
-  const { categoryValue, onChangeCategory } = props;
-  const categories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy'];
+const CategoryDisplayMapper: Record<string, string> = {
+  'ALL': 'All',
+  'MEAT': 'Meat',
+  'VEGETARIAN': 'Vegetarian',
+  'GRILL': 'Grill',
+  'SPICY': 'Spicy',
+}
+
+const Categories: React.FC<any> = React.memo((props: any) => {
+  const { categorySelectedId, categories, onChangeCategory } = props;
 
   return (
     <div className={styles.categories}>
       <ul>
-        {categories.map((categoryName, i) => (
-          <li key={i} onClick={() => onChangeCategory(i)} className={categoryValue === i ? styles.active : ''}>
-            {categoryName}
-          </li>
-        ))}
+        <li
+          key={'default-category'}
+          className={categorySelectedId === null ? styles.active : ''}
+          onClick={() => onChangeCategory(null)}
+        >{CategoryDisplayMapper['ALL']}</li>
+        {
+          categories.map((category: any, index: any) => (
+            <li
+              key={index}
+              className={categorySelectedId === category.id ? styles.active : ''}
+              onClick={() => onChangeCategory(category.id)}
+            >{CategoryDisplayMapper[category.title]}</li>
+          ))
+        }
       </ul>
     </div>
-  )
-})
+  );
+});
 
 export default Categories;

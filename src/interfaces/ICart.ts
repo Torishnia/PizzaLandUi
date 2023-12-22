@@ -1,6 +1,6 @@
-import { IPizzaToCart } from "./IPizza";
+// import { IPizzaToCart } from "./IPizza";
 
 export interface ICartSliceState {
   totalPrice: number;
-  items: IPizzaToCart[];
+  items: any[];
 }

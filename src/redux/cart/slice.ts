@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ICartSliceState, IPizzaToCart } from '../../interfaces';
+import { ICartSliceState } from '../../interfaces';
+// import { ICartSliceState, IPizzaToCart } from '../../interfaces';
 import { calcTotalPrice } from '../../utils/calcTotalPrice';
 import { getCartFromLS } from '../../utils/getCartFromLS';
 
@@ -15,7 +16,7 @@ const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addItem(state, action: PayloadAction<IPizzaToCart>) {
+		addItem(state, action: PayloadAction<any>) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
 
       if (findItem) {

@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IPizza, IPizzaSliceState } from '../../interfaces';
+// import { IPizza, IPizzaSliceState } from '../../interfaces';
+import { IPizza } from '../../interfaces';
 import { fetchPizzas } from './asyncActions';
 
-const initialState: IPizzaSliceState = {
-  products: [],
-  status: 'loading',
+const initialState: any = {
+  pizzasStatus: 'loading',
+  pizzas: [],
 }
 
 const pizzaSlice = createSlice({
@@ -13,25 +14,24 @@ const pizzaSlice = createSlice({
 	initialState,
 	reducers: {
 		setItems(state, action: PayloadAction<IPizza[]>) {
-      state.products = action.payload;
+      state.pizzas = action.payload;
     }
 	},
   extraReducers: (builder) => {
     builder.addCase(fetchPizzas.pending, (state) => {
-      state.status = 'loading';
-      state.products = [];
+      state.pizzasStatus = 'loading';
+      state.pizzas = [];
     })
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
-      state.status = 'success';
-      state.products = action.payload;
+      state.pizzasStatus = 'success';
+      state.pizzas = action.payload;
     })
     builder.addCase(fetchPizzas.rejected, (state) => {
-      state.status = 'error';
-      state.products = [];
-    })
+      state.pizzasStatus = 'error';
+      state.pizzas = [];
+    });
   },
 })
 
 export const { setItems } = pizzaSlice.actions;
-
 export default pizzaSlice.reducer;

@@ -1,4 +1,4 @@
-import { IPizzaToCart } from "../interfaces";
+// import { IPizzaToCart } from "../interfaces";
 import { calcTotalPrice } from "./calcTotalPrice";
 
 export const getCartFromLS = () => {
@@ -7,7 +7,7 @@ export const getCartFromLS = () => {
 	const totalPrice = calcTotalPrice(items);
 
 	return {
-		items: items as IPizzaToCart[],
+		items: items as any[],
 		totalPrice,
 	}
 }
