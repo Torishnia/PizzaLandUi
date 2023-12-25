@@ -4,7 +4,6 @@ import { MdYoutubeSearchedFor } from 'react-icons/md';
 import { VscClose } from 'react-icons/vsc';
 import debounce from 'lodash.debounce';
 
-import { setSearchValue } from '../../redux/filter/slice';
 import styles from './search.module.sass';
 
 const Search: React.FC = () => {
@@ -13,14 +12,14 @@ const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
-    dispatch(setSearchValue(''));
+    // dispatch(setSearchValue(''));
     setValue('');
     inputRef.current?.focus();
   }
 
   const updateSearchValue = useMemo(() => 
     debounce((str) => {
-      dispatch(setSearchValue(str));
+      // dispatch(setSearchValue(str));
     }, 350),
   [dispatch])
 

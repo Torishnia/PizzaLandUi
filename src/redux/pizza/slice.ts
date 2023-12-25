@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// import { IPizza, IPizzaSliceState } from '../../interfaces';
-import { IPizza } from '../../interfaces';
+import { IPizza, IPizzaSliceState } from '../../interfaces';
 import { fetchPizzas } from './asyncActions';
+import { E_StatusComponent } from '../../enums';
 
-const initialState: any = {
-  pizzasStatus: 'loading',
+const initialState: IPizzaSliceState = {
+  pizzasStatus: E_StatusComponent.LOADING,
   pizzas: [],
 }
 
@@ -19,15 +19,15 @@ const pizzaSlice = createSlice({
 	},
   extraReducers: (builder) => {
     builder.addCase(fetchPizzas.pending, (state) => {
-      state.pizzasStatus = 'loading';
+      state.pizzasStatus = E_StatusComponent.LOADING;
       state.pizzas = [];
     })
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
-      state.pizzasStatus = 'success';
+      state.pizzasStatus = E_StatusComponent.SUCCESS;
       state.pizzas = action.payload;
     })
     builder.addCase(fetchPizzas.rejected, (state) => {
-      state.pizzasStatus = 'error';
+      state.pizzasStatus = E_StatusComponent.ERROR;
       state.pizzas = [];
     });
   },

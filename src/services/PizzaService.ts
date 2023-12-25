@@ -1,4 +1,3 @@
-import { IPizzaSortBy, ISortOrder } from '../enums';
 import { IPizza } from '../interfaces';
 import axios from '../utils/axios';
 

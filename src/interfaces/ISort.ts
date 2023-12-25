@@ -1,8 +1,9 @@
 export interface ISort {
-  sortName: string;
-  sortProperty: 'rating' | 'title' | 'price' |'-rating' | '-title' | '-price';
+  sortBy: string;
+  sortOrder: string;
+  displayText: string;
 }
 
-export interface ISortProps {
-  value: ISort;
+export interface ISortProperty extends ISort {
+  onChangeSorting: Function;
 }

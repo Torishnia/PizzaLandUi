@@ -4,19 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { IPizza } from '../../interfaces';
 // import { IPizza, IPizzaToCart } from '../../interfaces';
 import { selectCartItemById } from '../../redux/cart/selectors';
-import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
+// import { addItem, minusItem, removeItem } from '../../redux/cart/slice';
 import styles from './pizzaType.module.sass';
 import { IPizza } from '../../interfaces';
 
-const PizzaType: React.FC<IPizza> = (props: IPizza) => {
-  const { id, image, title, price, sizes, types } = props;
+const TypesDisplayMapper: Record<string, string> = {
+  'TRADITIONAL': 'Traditional',
+  'THIN': 'Thin',
+}
 
-  const dispatch = useDispatch();
-  const cartItem = useSelector(selectCartItemById(id));
+const PizzaType: React.FC<IPizza> = (props: IPizza) => {
+  const { id, logo, title, price, sizes, types } = props;
+
+  // const dispatch = useDispatch();
+
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(0);
   const [currentPrice, setCurrentPrice] = useState(price);
-  // const typeNames = ['thin', 'traditional'];
+
+  const cartItem = useSelector(selectCartItemById(id));
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onAdd = () => {
@@ -32,7 +38,7 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
     // dispatch(addItem(item));
   }
 
-  const onClickRemove = () => {
+  const onRemove = () => {
     // dispatch(minusItem(id));
     // if (addedCount === 1) {
     //   dispatch(removeItem(id));
@@ -40,7 +46,7 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
   }
 
   return (
-    <div>
+    <>
       <div className={styles.selector}>
         <ul>
           {
@@ -49,11 +55,11 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
                 key={index}
                 className={activeType === index ? styles.active : ''}
                 onClick={() => setActiveType(index)}
-              >{ item.title }</li>
+              >{ TypesDisplayMapper[item.title] }</li>
             ))
           }
         </ul>
-        
+
         <ul>
           {
             sizes && sizes.map((item, index) => (
@@ -76,20 +82,22 @@ const PizzaType: React.FC<IPizza> = (props: IPizza) => {
         {
           addedCount > 0 && (
             <button 
-              onClick={onClickRemove} 
+              onClick={onRemove} 
               className={styles.bottom_buttonRemove}
-            >
-              Remove
-            </button>
+            >Remove</button>
           )
         }
 
         <button className={styles.bottom_buttonAdd} onClick={onAdd}>
           Add 
-          {addedCount > 0 && <span>{addedCount}</span>}
+          {
+            addedCount > 0 && (
+              <span>{addedCount}</span>
+            )
+          }
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

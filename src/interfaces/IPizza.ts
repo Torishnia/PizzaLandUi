@@ -1,8 +1,10 @@
+import { E_StatusComponent } from "../enums";
+
 export interface IPizzaPayload {
   title: string,
   description: string,
   price: number,
-  image: string,
+  logo: string,
   types: IPizzaType[],
   sizes: IPizzaSize[],
   category: number,
@@ -30,6 +32,11 @@ export interface IPizzaAdditionalImage {
   id: number,
   alt: string,
   img: string,
+}
+
+export interface IPizzaSliceState {
+  pizzas: IPizza[],
+  pizzasStatus: E_StatusComponent,
 }
 
 // export interface IPizzaPayload {
