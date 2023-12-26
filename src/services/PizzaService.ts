@@ -2,7 +2,7 @@ import { IPizza } from '../interfaces';
 import axios from '../utils/axios';
 
 class PizzaService {
-  async getAllPizzas(params: IPizzaParams) {
+  async getAllPizzas(params: IPizzaParams): Promise<IPizza[]> {
     try {
       const { search, sortBy, sortOrder, categoryId } = params;
       const { status, data } = await axios.get('/pizzas', { params: { search, sortBy, sortOrder, categoryId }});
@@ -16,7 +16,7 @@ class PizzaService {
 }
 
 export interface IPizzaParams {
-  categoryId?: number;
+  categoryId: number | null;
   search: string;
   sortBy: string;
   sortOrder: string;

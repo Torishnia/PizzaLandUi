@@ -35,7 +35,7 @@ const Sort: React.FC<ISortProperty> = React.memo((props: ISortProperty) => {
 
     document.body.addEventListener('click', handleClickOutside);
     return () => document.body.removeEventListener('click', handleClickOutside);
-  }, [])
+  }, []);
 
   return (
     <div className={styles.sort} ref={sortRef}>

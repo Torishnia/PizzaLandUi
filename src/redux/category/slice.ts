@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { ICategory } from '../../interfaces';
+import { ICategory, ICategorySliceState } from '../../interfaces';
 import { fetchCategories } from './asyncActions';
 import { E_StatusComponent } from '../../enums';
 
-const initialState: any = {
+const initialState: ICategorySliceState = {
   categorySelectedId: null,
   categories: [],
   categoryStatus: E_StatusComponent.LOADING,
@@ -17,7 +17,7 @@ const categorySlice = createSlice({
     setCategories(state, action: PayloadAction<ICategory[]>) {
       state.categories = action.payload;
     },
-    setCategoryId(state, action: PayloadAction<number>) {      
+    setCategoryId(state, action: PayloadAction<number | null>) {
 			state.categorySelectedId = action.payload;
 		},
   },

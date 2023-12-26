@@ -31,23 +31,23 @@ const Header: React.FC = () => {
 
         <Link to='/'>
           <div className={styles.header_logo}>
-
-            <div>
-              <img src={pizzaSlice} alt="logo" />
-            </div>
-
+            <img src={pizzaSlice} alt="logo" />
             <div>
               <h1>Pizza Land</h1>
               <p>The most delicious pizza in the Universe</p>
             </div>
-
           </div>
         </Link>
-        { (location.pathname !== '/cart' && location.pathname !== `/pizza/${id}`) && <Search /> }
+
+        { 
+          location.pathname !== '/cart'
+            && location.pathname !== `/pizza/${id}`
+            && ( <Search /> )
+        }
+
         <div className={styles.header_cart}>
-        {
-          location.pathname !== '/cart' && 
-            (
+          {
+            location.pathname !== '/cart' && (
               <Link to='/cart'>
                 <div className={styles.cart_block}>
                   <button><HiOutlineShoppingCart /></button>
@@ -55,9 +55,8 @@ const Header: React.FC = () => {
                 </div>
               </Link>
             )
-        }
+          }
         </div>
-
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { E_StatusComponent } from "../enums";
+import { E_StatusComponent } from '../enums';
 
 export interface IPizzaPayload {
   title: string,
@@ -7,7 +7,7 @@ export interface IPizzaPayload {
   logo: string,
   types: IPizzaType[],
   sizes: IPizzaSize[],
-  category: number,
+  categoryId: number,
   rating: number,
   otherImgs: IPizzaAdditionalImage[],
 }

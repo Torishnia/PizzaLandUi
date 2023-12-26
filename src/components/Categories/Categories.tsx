@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './categories.module.sass';
 
-const CategoryDisplayMapper: Record<string, string> = {
+export const CategoryDisplayMapper: Record<string, string> = {
   'ALL': 'All',
   'MEAT': 'Meat',
   'VEGETARIAN': 'Vegetarian',
